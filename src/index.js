@@ -1,12 +1,14 @@
 import express from 'express';
 import { connectDB } from './config/db.js';
+import bodyParser from 'body-parser';
 // const connectDB = require('./config/db');
+import { apiRoutes } from './routes/index.js';
 const app = express();
-import { TweetRepository } from './repository/index.js';
-import { TweetService } from './services/tweet-service.js';
-import { HashtagRepository } from './repository/index.js';
-import { Comment } from './models/comment.js';
-import { Tweet } from './models/tweet.js';
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/api', apiRoutes);
+// import { TweetService } from './services/tweet-service.js';
+
 app.listen(3000, async() => {
     console.log('listening on port 3000');
     await connectDB();
@@ -49,6 +51,7 @@ app.listen(3000, async() => {
 
 
     // let service = new TweetService();
-    // const tweet = await service.create({ content: 'This is after #processing . #fun Really #Trend #Career' });
+    // const tweet = await service.create({ content: 'This is all #rivu #RiVu case ' });
     // console.log(tweet);
+
 });
