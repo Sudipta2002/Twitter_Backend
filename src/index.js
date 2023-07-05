@@ -1,12 +1,12 @@
-const express = require('express')
-const connectDB = require('./config/db');
+import express from 'express';
+import { connectDB } from './config/db.js';
+// const connectDB = require('./config/db');
 const app = express();
-
-const TweetRepository = require('./repository/tweet-repository');
-const TweetService = require('./services/tweet-service');
-const HashtagRepository = require('./repository/hashtag-repository');
-const Comment = require('./models/comment');
-const Tweet = require('./models/tweet');
+import { TweetRepository } from './repository/index.js';
+import { TweetService } from './services/tweet-service.js';
+import { HashtagRepository } from './repository/index.js';
+import { Comment } from './models/comment.js';
+import { Tweet } from './models/tweet.js';
 app.listen(3000, async() => {
     console.log('listening on port 3000');
     await connectDB();
@@ -39,12 +39,16 @@ app.listen(3000, async() => {
         //     content: ["First tweet", "my tweet", "sefwe"]
         // });
         // console.log(tweets);
-        // let repo = new HashtagRepository();
-        // let response = await repo.findByName(['Trend', 'Career']);
-        // console.log(response);
-        // response = response.map(tags => tags.title);
-        // console.log(response);
-    let service = new TweetService();
-    const tweet = await service.create({ content: 'This is after #processing . #fun Really #Trend' });
-    console.log(tweet);
+
+
+    // let repo = new HashtagRepository();
+    // let response = await repo.findByName(['Trend', 'Career']);
+    // console.log(response);
+    // response = response.map(tags => tags.title);
+    // console.log(response);
+
+
+    // let service = new TweetService();
+    // const tweet = await service.create({ content: 'This is after #processing . #fun Really #Trend #Career' });
+    // console.log(tweet);
 });
