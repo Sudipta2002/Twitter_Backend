@@ -8,6 +8,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', apiRoutes);
 // import { TweetService } from './services/tweet-service.js';
+import { UserRepository } from './repository/user-repository.js';
+import { LikeService } from './services/like-service.js';
 
 app.listen(3000, async() => {
     console.log('listening on port 3000');
@@ -53,5 +55,16 @@ app.listen(3000, async() => {
     // let service = new TweetService();
     // const tweet = await service.create({ content: 'This is all #rivu #RiVu case ' });
     // console.log(tweet);
-
+    // let userRepo = new UserRepository();
+    // const user = await userRepo.create({
+    //     email: 'user@example.com',
+    //     password: '123456',
+    //     userName: 'sudi'
+    // });
+    const likeService = new LikeService();
+    likeService.toggleLike(
+        '64a640dfdccf24c49c540d15',
+        "Tweet",
+        "64a640ffda84a7b3b987f516"
+    )
 });

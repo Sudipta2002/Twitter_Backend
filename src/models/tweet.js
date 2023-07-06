@@ -13,10 +13,10 @@ const tweetSchema = new mongoose.Schema({
     // userEmail: {
     //     type: String
     // },
-    // comments: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Comment'
-    // }]
+    likes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Like'
+    }]
 }, { timestamps: true });
 const Tweet = mongoose.model('Tweet', tweetSchema);
 export { Tweet };
