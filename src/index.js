@@ -61,10 +61,11 @@ app.listen(3000, async() => {
     //     password: '123456',
     //     userName: 'sudi'
     // });
-    const likeService = new LikeService();
-    likeService.toggleLike(
-        '64a640dfdccf24c49c540d15',
-        "Tweet",
-        "64a640ffda84a7b3b987f516"
-    )
+    // const likeService = new LikeService();
+    // likeService.toggleLike(
+    //     '64a640dfdccf24c49c540d15',
+    //     "Tweet",
+    //     "64a640ffda84a7b3b987f516"
+    // )
+
 });
