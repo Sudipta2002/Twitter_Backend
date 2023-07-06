@@ -10,7 +10,7 @@ const commentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    user: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
@@ -21,11 +21,15 @@ const commentSchema = new mongoose.Schema({
         refPath: 'onModel' // dynamic reference via refPath
     },
     comments: [{
-        content: {
-            type: String,
-            required: true
-        }
-    }]
+        // content: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+            // }
+    }],
+    // likes: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Like"
+    // }]
 }, { timestamps: true })
 const Comment = mongoose.model('Comment', commentSchema);
 export { Comment };
