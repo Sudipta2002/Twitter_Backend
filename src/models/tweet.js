@@ -16,6 +16,9 @@ const tweetSchema = new mongoose.Schema({
     likes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Like'
+    }],
+    images: [{
+        type: String
     }]
 }, { timestamps: true });
 const Tweet = mongoose.model('Tweet', tweetSchema);

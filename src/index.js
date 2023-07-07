@@ -7,9 +7,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', apiRoutes);
-// import { TweetService } from './services/tweet-service.js';
-import { UserRepository } from './repository/user-repository.js';
-import { LikeService } from './services/like-service.js';
+
+
 
 app.listen(3000, async() => {
     console.log('listening on port 3000');
